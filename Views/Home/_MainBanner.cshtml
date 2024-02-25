@@ -1,0 +1,23 @@
+﻿@using WebApplication1.Models
+@model List<Banner>
+<div class="banner-main">
+    <section class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="banner-main">
+                            <h3>@item.Name</h3>
+                            <p>
+                                @item.Description
+                            </p>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </section>
+</div>

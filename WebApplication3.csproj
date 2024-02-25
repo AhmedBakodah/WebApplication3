@@ -1,0 +1,196 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-WebApplication3-22b8b7ed-7527-4aee-b9b0-7be2477a43cc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\js\colorfulTab.min.js" />
+    <Content Remove="wwwroot\js\jquery-1.11.0.min.js" />
+    <Content Remove="wwwroot\js\jquery.flexslider.js" />
+    <Content Remove="wwwroot\js\jquery.magnific-popup.js" />
+    <Content Remove="wwwroot\js\modernizr.custom.53451.js" />
+    <Content Remove="wwwroot\js\nivo-lightbox.min.js" />
+    <Content Remove="wwwroot\js\responsiveslides.min.js" />
+    <Content Remove="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\About.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\_MainBanner.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\colorfulTab.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\flexslider.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\magnific-popup.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\popuo-box.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\ab.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\ab1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\b1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\b3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\ban.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\c1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\c2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\c3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\close.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\e1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\e2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\e3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\g9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\msg.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\next.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\prev.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\social1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\t-icn.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\t1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\t2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\t3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\t4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\two-books.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\Uploads\fad0fa5b-75f5-482b-bfa1-c8b764589666.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\js\colorfulTab.min.js" />
+    <None Include="wwwroot\js\jquery-1.11.0.min.js" />
+    <None Include="wwwroot\js\jquery.flexslider.js" />
+    <None Include="wwwroot\js\jquery.magnific-popup.js" />
+    <None Include="wwwroot\js\modernizr.custom.53451.js" />
+    <None Include="wwwroot\js\nivo-lightbox.min.js" />
+    <None Include="wwwroot\js\responsiveslides.min.js" />
+    <None Include="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\ControlPanel\Views\Events\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\ControlPanel\Views\Events\Delete.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\ControlPanel\Views\Events\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\ControlPanel\Views\Events\Edit.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\ControlPanel\Views\Events\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Index-1.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Privacy.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\Error.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_Template.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_ValidationScriptsPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_WebisteTemplate.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_WebsiteLayout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\css\site.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\css\style.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\css\style1.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.eot">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.woff">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\HindVadodara-Regular.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\Share-Regular.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ControlPanel\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\_MainBanner.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\About.cshtml" />
+  </ItemGroup>
+
+</Project>
