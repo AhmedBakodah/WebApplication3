@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication3.Data;
 using WebApplication1.Models;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication3.Controllers
 {
     [Area("ControlPanel")]
+    [Authorize]
     public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;

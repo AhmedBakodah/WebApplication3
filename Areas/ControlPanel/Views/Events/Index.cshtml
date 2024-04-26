@@ -40,7 +40,8 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                    <img src="/uploads/@item.ImageUrl" width="50" />
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                    @* <img src="/uploads/@item.ImageUrl" width="50" /> *@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImageCaption)

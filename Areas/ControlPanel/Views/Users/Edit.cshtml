@@ -1,0 +1,93 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "المستخدمين";
+}
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home" asp-area=""><i class="fal fa-home mr-1"></i>الرئيسية</a></li>
+    <li class="breadcrumb-item"><a asp-action="Index"> @ViewData["Title"]</a></li>
+    <li class="breadcrumb-item active">تعديل</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="card mb-g p-2 p-lg-4">
+    <div class="subheader border-bottom">
+        <h1 class="subheader-title">
+            <i class='fal fa-plus-circle'></i> @ViewData["Title"]
+            <small>
+                تعديل
+            </small>
+        </h1>
+    </div>
+    <form asp-action="Edit">
+        <div class="form-group form-row">
+            <label asp-for="PersonName" class="col-lg-2  col-md-2 col-form-label"></label>
+            <div class="col-lg-4 col-md-4">
+                <input type="text" asp-for="PersonName" class="form-control" autocomplete="off" />
+                <span asp-validation-for="PersonName" class="text-danger"></span>
+            </div>
+
+            <label asp-for="UserName" class="col-lg-2  col-md-2 col-form-label"></label>
+            <div class="col-lg-4 col-md-4">
+                <input type="text" asp-for="UserName" class="form-control" autocomplete="off" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+
+        @*<div class="form-group form-row">
+                <label asp-for="Email" class="col-lg-2  col-md-2 col-form-label"></label>
+                <div class="col-lg-4 col-md-4">
+                    <input type="text" asp-for="Email" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <label asp-for="PhoneNumber" class="col-lg-2  col-md-2 col-form-label"></label>
+                <div class="col-lg-4 col-md-4">
+                    <input type="text" asp-for="PhoneNumber" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>*@
+
+        @*<div class="form-group form-row">
+            <label asp-for="Img" class="col-lg-2  col-md-2 col-form-label"></label>
+            <div class="col-lg-4 col-md-4">
+                <input type="file" asp-for="Img" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+
+            <label asp-for="Job" class="col-lg-2  col-md-2 col-form-label"></label>
+            <div class="col-lg-4 col-md-4">
+                <input type="text" asp-for="Job" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+        </div>*@
+
+        <div class="form-group form-row">
+            @*<label asp-for="Address" class="col-lg-2  col-md-2 col-form-label"></label>
+            <div class="col-lg-4 col-md-4">
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>*@
+            <label class="col-lg-2  col-md-2 col-form-label">الصلاحيات</label>
+            <div class="col-lg-10 col-md-10 mt-2">
+                @foreach (var item in Model.AllRoles)
+                {
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input id="ch-@(item.Id)" name="RolesIds" type="checkbox" class="custom-control-input"
+                               @(Model.RolesIds.Contains(item.Name) ? "checked=\'checked\'" : "") value="@item.Name">
+                        <label class="custom-control-label" for="ch-@(item.Id)">
+                            @item.Name
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">تعديل</button>
+            <a asp-action="Index" class="btn btn-default">الرئيسية</a>
+        </div>
+    </form>
+
+</div>
+
+

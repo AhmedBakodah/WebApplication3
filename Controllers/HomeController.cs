@@ -21,7 +21,7 @@ namespace WebApplication3.Controllers
         public IActionResult Index()
         {
             HomeViewModel model = new HomeViewModel();
-            model.Banners = _context.Banner.OrderByDescending(x=>x.Id).Take(10).ToList();
+            model.Banners = _context.Banner.ToList();
             model.Clients = _context.Client.ToList();
             model.Events = _context.Event.ToList();
             return View(model);

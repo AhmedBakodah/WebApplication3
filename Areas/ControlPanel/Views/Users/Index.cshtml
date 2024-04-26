@@ -1,0 +1,109 @@
+﻿
+@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "إدارة المستخدمين";
+    int row = 0;
+}
+
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="/"> <i class="fa fa-home"></i> الرئيسية </a></li>
+    <li class="breadcrumb-item"><a asp-action="Index"> @ViewData["Title"] </a> </li>
+</ol>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-default">
+                <h4 class="card-header">
+                    <i class="fa fa-list"></i> @ViewData["Title"]
+                </h4>
+                <div class="card-body">
+                    <p class="">القائمة الرئيسية</p>
+                    <hr />
+                    <p>
+                        <a asp-action="Create" class="btn btn-success">إضافة جديد</a>
+                    </p>
+                    <div class="d-print-none">
+                        <form method="get" asp-action="Index">
+                            <div class="form-group form-row">
+                                <label class="col-lg-2 col-md-2 col-form-label">اسم الطالب</label>
+                                <div class="col-lg-2 col-md-2">
+                                    <input type="text" name="q" value="@ViewContext.HttpContext.Request.Query["q"]" class="form-control" placeholder="الاسم أو جزء منه" />
+                                </div>
+                                <label class="col-lg-2 col-md-2 col-form-label">الصلاحية</label>
+                                <div class="col-lg-2 col-md-2">
+                                    <select name="roleId" class="form-control" asp-items="ViewBag.roleId">
+                                        <option value="">اختر</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">تصفية</button>
+                                        <a asp-action="Index" class="btn btn-light">الغاء التصفية</a>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>
+                                        الاسم
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UserName)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IsEnabled)
+                                    </th>
+
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@(++row)</td>
+                                        <td>
+                                            @Html.DisplayFor(x => item.PersonName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+
+                                        <td>
+                                            <form asp-action="ChangeEnable" method="post">
+                                                <div class="form-check">
+                                                    <label for="IsEnable-@item.Id">
+                                                        <input type="hidden" name="Id" value="@item.Id" />
+                                                        <input type="checkbox" id="IsEnable-@item.Id" name="IsEnable" @(item.IsEnabled ? "checked" : "") value="true" onchange="this.form.submit()" />
+                                                        <input type="hidden" name="IsEnable" value="false" /> |
+                                                        @(item.IsEnabled ? "فعال" : "غير فعال")
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        </td>
+
+                                        <td>
+                                            <div class="btn-group">
+                                                @*<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">تعديل</a>*@
+                                                <a asp-action="Reset" class="btn btn-warning" asp-route-id="@item.Id">إعادة كلمة السر</a>
+                                                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id" onclick="return confirm('هل أنت متأكدمن الحذف؟')">حذف</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "المستخدمون";
+}
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="/"> <i class="fa fa-home"></i> الرئيسية </a></li>
+    <li class="breadcrumb-item"><a asp-action="Index"> @ViewData["Title"] </a> </li>
+    <li class="breadcrumb-item active">تهيئة كلمة المرور</li>
+</ol>
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-default">
+                <h4 class="card-header">
+                    <i class="fa fa-info-circle"></i> @ViewData["Title"]
+                </h4>
+                <hr />
+                <div>
+                    <div class="alert alert-warning">
+                        <div class="flex-1 pl-1">
+                            <span class="h2">
+                                تنبيه!
+                            </span>
+                            <br>
+                            سيتم تهيئة كلمة المرور لهذا المستخدم. موافق؟
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="">تفاصيل</p>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.UserName)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.PersonName)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.PersonName)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Job)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Job)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+                            
+                        </dl>
+
+                        <form asp-action="Reset">
+
+                            <div class="form-group form-row">
+                                <label asp-for="Password" class="col-lg-1  col-md-1 col-form-label"></label>
+                                <div class="col-lg-4 col-md-4">
+                                    <input type="password" asp-for="Password" class="form-control" autocomplete="off" 
+                                            data-val="true" data-val-length="طول كلمة المرور يجب أن يكون بين 6 إلى 16" 
+                                            data-val-length-max="16" data-val-length-min="6" data-val-required="كلمة المرور - حقل مطلوب" id="Password" maxlength="16" name="Password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Id" />
+                            <button type="submit" class="btn btn-warning">تهيئة</button>
+                            <a asp-action="Index" class="btn btn-dark">الرئيسية</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
