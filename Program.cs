@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication3.Data;
 using WebApplication3.Models;
@@ -23,7 +23,6 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(
         options.Password.RequireNonAlphanumeric = false;
     }).AddRoles<IdentityRole>()
              .AddRoleManager<RoleManager<IdentityRole>>()
-             .AddUserManager<UserManager<ApplicationUser>>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
@@ -47,7 +46,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-app.UseAuthentication();
+//app.UseAuthentication();
 
 app.MapAreaControllerRoute(
     name: "ControlPanel",

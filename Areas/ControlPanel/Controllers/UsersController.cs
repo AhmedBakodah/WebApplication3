@@ -9,43 +9,44 @@ namespace WebApplication3.Areas.ControlPanel.Controllers
     [Area("ControlPanel")]
     public class UsersController : Controller
     {
-        private SignInManager<ApplicationUser> _signInManager;
+        //private SignInManager<ApplicationUser> _signInManager;
         private UserManager<ApplicationUser> _userManager;
         private RoleManager<IdentityRole> _roleManager;
 
         public UsersController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            //SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            //_signInManager = signInManager;
             _roleManager = roleManager;
         }
 
         // GET: Users/Home
-        public async Task<ActionResult> Index(string q, string roleId,bool? studentStatusId, int page = 1)
+        public async Task<ActionResult> Index(string q, string roleId, bool? studentStatusId, int page = 1)
         {
-            var studentStatus = new Dictionary<string, bool?> { { "أختر", null } , { "تم اكمال التسجيل", true }, { "لم يتم اكمال التسجيل", false }};
+
+            var userName = "";// _userManager.GetUserName(User);
+            var users = _userManager.Users.ToList();
+            if (!string.IsNullOrWhiteSpace(roleId))
+            {
+                users = (await _userManager.GetUsersInRoleAsync(roleId)).AsQueryable().ToList();
+            }
+            if (!string.IsNullOrWhiteSpace(userName))
+            {
+                users = users
+                .Where(x => x.UserName == userName).ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                users = users.Where(x => x.UserName!.Contains(q) || x.Email!.StartsWith(q)).ToList();
+            }
+
             var roles = _roleManager.Roles.Select(x => x.Name).AsEnumerable();
-            var userName = _userManager.GetUserName(User);
-            var users = _userManager.Users;
-            if(!string.IsNullOrWhiteSpace(roleId))
-            {
-                users = (await _userManager.GetUsersInRoleAsync(roleId)).AsQueryable();
-            }
-            users = users
-                .Where(x => x.UserName != userName);
-                //.WhereIf(x => x.UserName.Contains(q), !q.IsNullOrWhiteSpace());
-            //List<string> userIds = new List<string>();
-            if(!string.IsNullOrWhiteSpace(q))
-            {
-                users = users.Where(x => x.UserName!.Contains(q));
-            }
-
-
             ViewData["roleId"] = new SelectList(roles, roleId);
-            ViewBag.StudentStatus = new SelectList(studentStatus, "Value", "Key", studentStatusId);
-            return View(await users.OrderBy(x => x.Id).ToListAsync());
+            //ViewBag.StudentStatus = new SelectList(studentStatus, "Value", "Key", studentStatusId);
+            return View(users.OrderBy(x => x.Id).ToList());
         }
 
         public ActionResult Create()

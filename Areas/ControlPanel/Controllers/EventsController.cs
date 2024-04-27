@@ -58,11 +58,11 @@ namespace WebApplication3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Event @event, IFormFile file)
+        public async Task<IActionResult> Create(Event @event, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
-                string ext = Path.GetExtension(file.FileName);
+                string ext = Path.GetExtension(file!.FileName);
 
 
                 string postedFileName = Guid.NewGuid().ToString() + ext;
